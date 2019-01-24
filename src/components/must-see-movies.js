@@ -206,6 +206,7 @@ class MustSeeMovies extends connect(store)(LitElement) {
           <a ?selected="${this._page === 'view1'}" href="/view1">View One</a>
           <a ?selected="${this._page === 'view2'}" href="/view2">View Two</a>
           <a ?selected="${this._page === 'view3'}" href="/view3">View Three</a>
+          <a ?selected="${this._page === 'movie-list'}" href="/movie-list">Movie List</a>
         </nav>
       </app-header>
 
@@ -217,6 +218,7 @@ class MustSeeMovies extends connect(store)(LitElement) {
           <a ?selected="${this._page === 'view1'}" href="/view1">View One</a>
           <a ?selected="${this._page === 'view2'}" href="/view2">View Two</a>
           <a ?selected="${this._page === 'view3'}" href="/view3">View Three</a>
+          <a ?selected="${this._page === 'movie-list'}" href="/movie-list">Movie List</a>
         </nav>
       </app-drawer>
 
@@ -225,6 +227,7 @@ class MustSeeMovies extends connect(store)(LitElement) {
         <my-view1 class="page" ?active="${this._page === 'view1'}"></my-view1>
         <my-view2 class="page" ?active="${this._page === 'view2'}"></my-view2>
         <my-view3 class="page" ?active="${this._page === 'view3'}"></my-view3>
+        <movie-list class="page" ?active="${this._page === 'movie-list'}"></movie-list>
         <my-view404 class="page" ?active="${this._page === 'view404'}"></my-view404>
       </main>
 
