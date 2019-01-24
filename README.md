@@ -1,6 +1,6 @@
 # Must See Movies
 
-Available at https://animated-wave-229612.appspot.com/
+Hosted on Google App Engine at https://mustseemovies.alexlockhart.me/movie-list
 
 [![Built with pwa–starter–kit](https://img.shields.io/badge/built_with-pwa–starter–kit_-blue.svg)](https://github.com/Polymer/pwa-starter-kit "Built with pwa–starter–kit")
 
