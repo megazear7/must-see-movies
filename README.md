@@ -4,6 +4,16 @@ Hosted on Google App Engine at https://mustseemovies.alexlockhart.me/movie-list
 
 [![Built with pwa–starter–kit](https://img.shields.io/badge/built_with-pwa–starter–kit_-blue.svg)](https://github.com/Polymer/pwa-starter-kit "Built with pwa–starter–kit")
 
+## Development
+
+1. `npm install`
+1. `npm start` -> http://localhost:8081/movie-list
+
+## Deployment
+
+1. `npm run build`
+1. `npm run deploy:gcloud` -> https://mustseemovies.alexlockhart.me/movie-list
+
 ## Technologies Employed
 
 ### PWA Starter Kit
