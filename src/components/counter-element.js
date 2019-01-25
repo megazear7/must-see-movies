@@ -45,14 +45,8 @@ class CounterElement extends LitElement {
 
   render() {
     return html`
-      <div>
-        <p>
-          Clicked: <span>${this.clicks}</span> times.
-          Value is <span>${this.value}</span>.
-          <button @click="${this._onIncrement}" title="Add 1">${plusIcon}</button>
-          <button @click="${this._onDecrement}" title="Minus 1">${minusIcon}</button>
-        </p>
-      </div>
+      <button @click="${this._onIncrement}" title="Add 1">${plusIcon}</button>
+      <button @click="${this._onDecrement}" title="Minus 1">${minusIcon}</button>
     `;
   }
 

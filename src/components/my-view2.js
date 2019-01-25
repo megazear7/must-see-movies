@@ -56,6 +56,7 @@ class MyView2 extends connect(store)(PageViewElement) {
         Redux store. When the element updates its counter, this page updates the values
         in the Redux store, and you can see the current value of the counter reflected in
         the bubble above.</p>
+        <p>Total clicks: ${this._clicks}</p>
         <br><br>
       </section>
       <section>

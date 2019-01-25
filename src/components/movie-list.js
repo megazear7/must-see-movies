@@ -2,7 +2,30 @@ import { html, css } from 'lit-element';
 import { PageViewElement } from './page-view-element.js';
 import { SharedStyles } from './shared-styles.js';
 
-class MovieList extends PageViewElement {
+/* --- Redux Imports --- */
+import { connect } from 'pwa-helpers/connect-mixin.js';
+import { store } from '../store.js';
+import { increment, decrement } from '../actions/counter.js';
+
+import counter from '../reducers/counter.js';
+store.addReducers({
+  counter
+});
+/* -------------------- */
+
+/* --- Element Imports --- */
+import './counter-element.js';
+/* ----------------------- */
+
+class MovieList extends connect(store)(PageViewElement) {
+  static get properties() {
+    return {
+      // This is the data from the store.
+      _clicks: { type: Number },
+      _value: { type: Number }
+    };
+  }
+
   static get styles() {
     return [
       SharedStyles,
@@ -15,12 +38,12 @@ class MovieList extends PageViewElement {
         }
 
         li {
+          display: flex;
           line-height: 50px;
-          padding-left: 5px;
+          padding: 5px;
           border-bottom: 1px solid #ccc;
           text-decoration: none;
           color: #000;
-          display: block;
           transition: font-size 0.3s ease, background-color 0.3s ease;
         }
 
@@ -39,6 +62,19 @@ class MovieList extends PageViewElement {
         section:nth-of-type(odd) li:hover {
           background: var(--app-section-even-color);
         }
+
+        counter-element {
+          display: block;
+        }
+
+        .circle {
+          margin: 0;
+          width: 64px;
+        }
+
+        .right-column {
+          margin-left: 15px;
+        }
       `
     ];
   }
@@ -48,7 +84,18 @@ class MovieList extends PageViewElement {
       <section>
         <h2>2018</h2>
         <ul>
-          <li>Avengers: Infinity War</li>
+          <li>
+            <div class="circle">${this._value}</div>
+            <div class="right-column">
+              <span>Avengers: Infinity War</span>
+              <counter-element
+                value="${this._value}"
+                clicks="${this._clicks}"
+                @counter-incremented="${this._counterIncremented}"
+                @counter-decremented="${this._counterDecremented}">
+              </counter-element>
+            </div>
+          </li>
           <li>Annihilation</li>
         </ul>
       </section>
@@ -107,6 +154,19 @@ class MovieList extends PageViewElement {
         </ul>
       </section>
     `;
+  }
+
+  _counterIncremented() {
+    store.dispatch(increment());
+  }
+
+  _counterDecremented() {
+    store.dispatch(decrement());
+  }
+
+  stateChanged(state) {
+    this._clicks = state.counter.clicks;
+    this._value = state.counter.value;
   }
 }
 
