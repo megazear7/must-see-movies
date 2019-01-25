@@ -69,6 +69,18 @@ class MustSeeMovies extends connect(store)(LitElement) {
           --app-drawer-selected-color: #78909C;
         }
 
+        :host(.dark-theme) {
+          /* This is the dark theme */
+          --app-primary-color: yellow;
+          --app-secondary-color: white;
+          --app-dark-text-color: white;
+          --app-light-text-color: white;
+          --app-header-background-color: black;
+          --app-header-text-color: var(--app-dark-text-color);
+          --app-section-even-color: #282828;
+          --app-section-odd-color: black;
+        }
+
         app-header {
           position: fixed;
           top: 0;

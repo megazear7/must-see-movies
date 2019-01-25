@@ -43,7 +43,7 @@ class MovieList extends connect(store)(PageViewElement) {
           padding: 5px;
           border-bottom: 1px solid #ccc;
           text-decoration: none;
-          color: #000;
+          color: var(--app-dark-text-color);
           transition: font-size 0.3s ease, background-color 0.3s ease;
         }
 
